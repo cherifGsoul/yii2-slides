@@ -556,126 +556,508 @@ as an acronym for <b>Yes It Is!</b></p>
   </div>
   <div class="slide hidden" id="slide-2">
     <section class="slide-content"><h2 id="versions">Versions</h2>
-<p>Actuellements existe 2 génération du framework</p>
-<h3 id="yii-1-1-x-php-5-1-">Yii 1.1.X (PHP&gt;=5.1)</h3>
-<p>La version qui a commencé en Janvier 2008, fin de support Décembre 2016</p>
-<h3 id="yii-2-x-x-php-5-4-">Yii 2.X.X (PHP&gt;=5.4)</h3>
-<p>La version que vous devez choisir</p>
+<p>Actuellements existe 2 générations du framework</p>
+<ul>
+<li>Yii 1.1.X (PHP&gt;=5.1)</li>
+<li>Yii 2.X.X (PHP&gt;=5.4)</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
+    <section class="slide-content"><h3 id="yii-1-1-x-php-5-1-">Yii 1.1.X (PHP&gt;=5.1)</h3>
+<p>La version qui existe depuis 01 Janvier 2008, fin de support Décembre 2016</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h3 id="yii-2-x-x-php-5-4-">Yii 2.X.X (PHP&gt;=5.4)</h3>
+<p>La version que vous devez choisir</p>
+<ul>
+<li>Prête pour PHP7</li>
+<li>Marche sur HHVM</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="caract-rstiques">Caractérstiques</h3>
 <ul>
 <li>Comme la plupart des frameworks, Yii implémente le pattern architectural MVC</li>
 <li>Installation ou création de projet via Composer (PSR4 autoloading)</li>
 <li>Migration de base de données automatisée</li>
-<li>Active Record et Query builder (Relationel et noSql)</li>
+<li>Active Record et Query builder (Relationel et noSQL)</li>
 <li>HTTP filters</li>
 <li>développement des API RESTFul</li>
+<li>RBAC (Role Based Access Control)</li>
 <li>Caching</li>
 <li>...</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-4">
+  <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h3 id="il-est-bien-pour-">Il est bien pour:</h3>
-<p>Son architecture orientée composant lui permet d&#39;être le choix pour toute applications web de grande échelle</p>
+<p>Son architecture orientée composant lui permet d&#39;être le choix pour toutes applications web de grande échelle</p>
 <ul>
 <li>Portail</li>
-<li>CMS (Content manegement systems)</li>
+<li>Application Entreprise</li>
+<li>CMS (Content management systems)</li>
 <li>Projets e-commerce</li>
 <li>Web Services Restful</li>
 <li>...</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-5">
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h2 id="applications">Applications</h2>
+<ul>
+<li>Web Application<ul>
+<li>Basic</li>
+<li>Advanced</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h3 id="web-application">Web Application</h3>
+<h2 id="-structure-img-application-structure-png-"><img src="img/application-structure.png" alt="structure"></h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="web-application">Web Application</h3>
+<h4 id="entry-script">Entry script</h4>
+<pre><code class="lang-php"><span class="hljs-comment">// comment out the following two lines when deployed to production</span>
+defined(<span class="hljs-string">'YII_DEBUG'</span>) <span class="hljs-keyword">or</span> define(<span class="hljs-string">'YII_DEBUG'</span>, <span class="hljs-keyword">true</span>);
+defined(<span class="hljs-string">'YII_ENV'</span>) <span class="hljs-keyword">or</span> define(<span class="hljs-string">'YII_ENV'</span>, <span class="hljs-string">'dev'</span>);
+
+<span class="hljs-keyword">require</span>(<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/../vendor/autoload.php'</span>);
+<span class="hljs-keyword">require</span>(<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/../vendor/yiisoft/yii2/Yii.php'</span>);
+
+$config = <span class="hljs-keyword">require</span>(<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/../config/web.php'</span>);
+
+(<span class="hljs-keyword">new</span> yii\web\Application($config))-&gt;run();</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h2 id="les-basiques">Les basiques</h2>
 <ul>
 <li>Object (Objet)</li>
 <li>Component (Composant)</li>
-<li>Base de données</li>
 <li>Models (Sans connexion à la base de données)</li>
 <li>Active Record (Models connectés à une base de données)</li>
 <li>Controllers</li>
 <li>Views</li>
+<li>Modules</li>
+<li>Base de données</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="object-objet-">Object (Objet)</h3>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="components-composants-">Components (Composants)</h3>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="base-de-donn-es">Base de données</h3>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="models-sans-connexion-la-base-de-donn-es-">Models (Sans connexion à la base de données)</h3>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="active-record-models-connect-s-une-base-de-donn-es-">Active Record (Models connectés à une base de données)</h3>
-</section>
-  </div>
   <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="controllers">Controllers</h3>
+    <section class="slide-content"><h3 id="object-objet-">Object (Objet)</h3>
+<p>Pratiquement la classe de base pour touts les composants du framework, la classe Object facilite l&#39;accée au proporiéte d&#39;objet</p>
+<pre><code class="lang-php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">yii</span>\<span class="hljs-title">base</span>\<span class="hljs-title">Object</span>
+</span>{
+    <span class="hljs-keyword">private</span> $name;
+    <span class="hljs-keyword">private</span> $tasks;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> $this-&gt;name; }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setName</span><span class="hljs-params">($name)</span> </span>{ $this-&gt;name=$name; }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTasks</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> $this-&gt;tasks; }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTasks</span><span class="hljs-params">($tasks)</span> </span>{ $this-&gt;tasks = $tasks; }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTask</span> <span class="hljs-params">($task)</span> </span>{ $this-&gt;tasks[] = $task; }
+}
+$todoList = <span class="hljs-keyword">new</span> TodoList;
+$todoList-&gt;name = <span class="hljs-string">'My Todolist'</span>; <span class="hljs-comment">// équivalent a $todoList-&gt;setName('My Todolist');</span>
+<span class="hljs-keyword">echo</span> $todoList-&gt;name; <span class="hljs-comment">// équivalent a echo $todoList-&gt;getName();</span></code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="views-vues-">Views (Vues)</h3>
+    <section class="slide-content"><h3 id="application-components-composants-">Application Components (Composants)</h3>
+<p>Peuvent être configurés dans la propriéte \Yii\base\Application::$components</p>
+<pre><code class="lang-php">...
+<span class="hljs-string">'components'</span> =&gt; [
+    <span class="hljs-string">'request'</span> =&gt; [
+        <span class="hljs-string">'cookieValidationKey'</span> =&gt; <span class="hljs-string">'ovAGe8c4pyo55P9Nq_A9nQ6sWvmVpzN_'</span>,
+    ],
+    <span class="hljs-string">'cache'</span> =&gt; [<span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'yii\caching\FileCache'</span>],
+    <span class="hljs-string">'user'</span> =&gt; [
+        <span class="hljs-string">'identityClass'</span> =&gt; <span class="hljs-string">'app\models\User'</span>,
+        <span class="hljs-string">'enableAutoLogin'</span> =&gt; <span class="hljs-keyword">true</span>,
+    ],
+    <span class="hljs-string">'errorHandler'</span> =&gt; [ <span class="hljs-string">'errorAction'</span> =&gt; <span class="hljs-string">'site/error'</span>],
+    <span class="hljs-string">'mailer'</span> =&gt; [
+        <span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'yii\swiftmailer\Mailer'</span>,
+        <span class="hljs-string">'useFileTransport'</span> =&gt; <span class="hljs-keyword">true</span>,
+    ]</code></pre>
+<pre><code class="lang-php"><span class="hljs-comment">//les composant peuvent être accédés comme suit:</span>
+\Yii::$app-&gt;cache
+<span class="hljs-comment">// pour db</span>
+\Yii::$app-&gt;db</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h2 id="outils-de-d-veloppement">Outils de développement</h2>
+    <section class="slide-content"><h3 id="application-components-composants-">Application Components (Composants)</h3>
+<p>Les composants disponble dans le framework:</p>
 <ul>
-<li>Gii (échaffaudage)</li>
-<li>Debug</li>
+<li>assetManager: Pour la gestion des assets (CSS,JS,IMG ... etc)</li>
+<li>db: Connexion à une base de données plus l&#39;execution des requêtes SQL</li>
+<li>errorHandler: Gestionnaire d&#39;erreurs</li>
+<li>formatter: Formatage des données comme la date, le nombre de chiffre aprés la virgule ...</li>
+<li>i18n: Traducation de texte et chaine de caractéres</li>
+<li>log: Gestion de log</li>
+<li>mailer: Envoie des emails avec swiftmailer</li>
+<li>request: gestion des requêtes HTTP</li>
+<li>response: gestion des reponses HTTP</li>
+<li>session: gestion des sessions</li>
+<li>urlManager: gestion des URLs et reécriture</li>
+<li>user: gestion d&#39;authentification</li>
+<li>view: gestion du rendu HTML</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="gii-chaffaudage-">Gii (échaffaudage)</h3>
+    <section class="slide-content"><h3 id="models-sans-connexion-la-base-de-donn-es-">Models (Sans connexion à la base de données)</h3>
+<h4 id="cr-ation-de-classe">Création de classe</h4>
+<p>Le &quot;M&quot; dans MVC, sont des objets qui représentent les données et les régles de gestion de la logique métiers
+Les Models dans Yii peuvent être créés en utilisant la class \yii\base\Model</p>
+<pre><code class="lang-php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">yii</span>\<span class="hljs-title">base</span>\<span class="hljs-title">Model</span>
+</span>{
+  <span class="hljs-keyword">public</span> $name;
+  <span class="hljs-keyword">public</span> $status;
+  <span class="hljs-keyword">public</span> $tasks;
+
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rules</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [ [<span class="hljs-string">'name,status'</span>,<span class="hljs-string">'required'</span>], [<span class="hljs-string">'status'</span>,<span class="hljs-string">'integer'</span>] ];
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attributeLabels</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [
+      <span class="hljs-string">'name'</span>=&gt;<span class="hljs-string">'Nom'</span>,
+      <span class="hljs-string">'status'</span>=&gt;<span class="hljs-string">'Status'</span>
+    ];
+  }
+}</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-15">
-    <section class="slide-content"><h3 id="debug">Debug</h3>
+    <section class="slide-content"><h3 id="models-sans-connexion-la-base-de-donn-es-">Models (Sans connexion à la base de données)</h3>
+<h4 id="utilisation-de-la-classe">Utilisation de la classe</h4>
+<pre><code class="lang-php"><span class="hljs-comment">// dans une application réelle les données sont passées via Controller</span>
+$todolist = <span class="hljs-keyword">new</span> TodoList;
+$data = [<span class="hljs-string">'name'</span>=&gt;<span class="hljs-string">'Holiday tasks'</span>, <span class="hljs-string">'status'</span>=&gt;<span class="hljs-number">0</span>];
+$todolist-&gt;attributes = $data;
+<span class="hljs-keyword">if</span>($todolist-&gt;validate()) {
+  <span class="hljs-comment">///save the model</span>
+}</code></pre>
+<p>Récupérer les données du web (Formulaire)</p>
+<pre><code class="lang-php"><span class="hljs-comment">// dans une application réelle les données sont passées via Controller</span>
+$todolist = <span class="hljs-keyword">new</span> TodoList;
+$model-&gt;attributes = \Yii::$app-&gt;request-&gt;post(<span class="hljs-string">'TodoList'</span>);
+<span class="hljs-keyword">if</span>($todolist-&gt;validate()) {
+  <span class="hljs-comment">///save the model</span>
+}</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-16">
-    <section class="slide-content"><h2 id="extensions">Extensions</h2>
-<ul>
-<li>Widgets</li>
-<li>Components</li>
-<li>Behaviors</li>
-<li>Modules</li>
-<li>Filters</li>
-<li>Actions</li>
-<li>Events</li>
-</ul>
+    <section class="slide-content"><h3 id="active-record-models-connect-s-une-base-de-donn-es-">Active Record (Models connectés à une base de données)</h3>
+<p>L&#39;Active Record (AR) est un pattern qui permet l&#39;accées au données enregistrés dans une base de données via une interface de programmation orientée objet ou la classe est associée à une table et une instance de  cette classe correspond a une ligne dans cette table</p>
+<pre><code class="lang-php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">ActiveRecord</span>
+</span>{
+
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rules</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [ [<span class="hljs-string">'name,status'</span>,<span class="hljs-string">'required'</span>], [<span class="hljs-string">'status'</span>,<span class="hljs-string">'integer'</span>] ];
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attributeLabels</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> [
+      <span class="hljs-string">'name'</span>=&gt;<span class="hljs-string">'Nom'</span>,
+      <span class="hljs-string">'status'</span>=&gt;<span class="hljs-string">'Status'</span>
+    ];
+  }
+}</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-17">
-    <section class="slide-content"><h3 id="widgets">Widgets</h3>
+    <section class="slide-content"><h3 id="active-record-models-connect-s-une-base-de-donn-es-">Active Record (Models connectés à une base de données)</h3>
+<h4 id="utilisation">Utilisation</h4>
+<pre><code class="lang-php"><span class="hljs-comment">// dans une application réelle les données sont passées via Controller</span>
+$todolist = <span class="hljs-keyword">new</span> TodoList;
+$data = [<span class="hljs-string">'name'</span>=&gt;<span class="hljs-string">'Holiday tasks'</span>, <span class="hljs-string">'status'</span>=&gt;<span class="hljs-number">0</span>];
+$todolist-&gt;attributes = $data;
+<span class="hljs-keyword">if</span>($todolist-&gt;save()) {
+  <span class="hljs-comment">//do something</span>
+}</code></pre>
+<p>Récupérer les données du web (Formulaire)</p>
+<pre><code class="lang-php"><span class="hljs-comment">// dans une application réelle les données sont passées via Controller</span>
+$todolist = <span class="hljs-keyword">new</span> TodoList;
+$model-&gt;attributes = \Yii::$app-&gt;request-&gt;post(<span class="hljs-string">'TodoList'</span>);
+<span class="hljs-keyword">if</span>($todolist-&gt;save()) {
+  <span class="hljs-comment">//do something</span>
+}</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-18">
-    <section class="slide-content"><h3 id="components-composants-">Components (Composants)</h3>
+    <section class="slide-content"><h3 id="active-record-models-connect-s-une-base-de-donn-es-">Active Record (Models connectés à une base de données)</h3>
+<h4 id="r-cup-rer-les-donn-es">Récupérer les données</h4>
+<pre><code class="lang-php"><span class="hljs-comment">//tout les enregistrement dans une table</span>
+$lists = TodoList::find()-&gt;where([<span class="hljs-string">'status'</span>=&gt;TodoList::STATUS_INCOMPLETE])
+        -&gt;orderBy(<span class="hljs-string">'id'</span>)-&gt;all();
+<span class="hljs-comment">// un seul enregistrement</span>
+$list = TodoList::find()-&gt;where([<span class="hljs-string">'id'</span>=&gt;<span class="hljs-number">654</span>])-&gt;one();
+<span class="hljs-comment">// calcule le nombre d'enregistrements</span>
+$count = TodoList::find()-&gt;where([<span class="hljs-string">'status'</span>=&gt;TodoList::STATUS_COMPLETE])-&gt;count();
+<span class="hljs-comment">// indexés par IDs</span>
+$lists = TodoList::find()-&gt;indexBy(<span class="hljs-string">'id'</span>)-&gt;all();</code></pre>
+<p>Racourcis:</p>
+<pre><code class="lang-php"><span class="hljs-comment">//tout les enregistrement dans une table</span>
+$lists = TodoList::findAll([<span class="hljs-string">'status'</span>=&gt;TodoList::STATUS_INCOMPLETE]);
+
+<span class="hljs-comment">// un seul enregistrement</span>
+$list = TodoList::findOne(<span class="hljs-number">654</span>);</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><h3 id="behaviors-comportement-dynamique-">Behaviors (Comportement dynamique)</h3>
+    <section class="slide-content"><h3 id="active-record-models-connect-s-une-base-de-donn-es-">Active Record (Models connectés à une base de données)</h3>
+<h4 id="relations">Relations</h4>
+<pre><code class="lang-php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> <span class="hljs-keyword">extends</span> \<span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">ActiveRecord</span>
+</span>{
+  <span class="hljs-comment">//...</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTasks</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> $this-&gt;hasMany(Task::className(), [<span class="hljs-string">'todolist_id'</span> =&gt; <span class="hljs-string">'id'</span>]);
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOwner</span><span class="hljs-params">()</span>
+  </span>{
+    <span class="hljs-keyword">return</span> $this-&gt;hasOne(User::className(), [<span class="hljs-string">'id'</span> =&gt; <span class="hljs-string">'user_id'</span>]);
+  }
+}
+
+<span class="hljs-comment">//lazy loading</span>
+$list = TodoList::findOne(<span class="hljs-number">125</span>);
+<span class="hljs-keyword">foreach</span> ($list-&gt;tasks <span class="hljs-keyword">as</span> $task) { <span class="hljs-keyword">echo</span> $task-&gt;name; }
+<span class="hljs-comment">//eager loading</span>
+$list = TodoList::find()-&gt;with(<span class="hljs-string">'tasks'</span>)-&gt;where([<span class="hljs-string">'id'</span>=&gt;<span class="hljs-number">125</span>]);
+<span class="hljs-keyword">foreach</span> ($list-&gt;tasks <span class="hljs-keyword">as</span> $task) { <span class="hljs-keyword">echo</span> $task-&gt;name; }</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-20">
-    <section class="slide-content"><h3 id="modules">Modules</h3>
+    <section class="slide-content"><h3 id="controllers">Controllers</h3>
+<p>Le &quot;C&quot; dans MVC, sont des classes filles de la classe yii\base\Controller, ont la responsabilité de résoudre la requête venue de l&#39;utilsateur et envoyer la résponse.</p>
+<pre><code class="lang-php">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoListController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span>
+</span>{
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">actionView</span><span class="hljs-params">($id)</span>
+  </span>{
+    $model = TodoList::findOne($id);
+    <span class="hljs-keyword">if</span> ($model === <span class="hljs-keyword">null</span>) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NotFoundHttpException;
+    }
+    <span class="hljs-keyword">return</span> $this-&gt;render(<span class="hljs-string">'view'</span>, [
+      <span class="hljs-string">'model'</span> =&gt; $model,
+    ]);
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">actionCreate</span><span class="hljs-params">()</span>
+  </span>{
+    $model = <span class="hljs-keyword">new</span> TodoList;
+    <span class="hljs-keyword">if</span> ($model-&gt;load(Yii::$app-&gt;request-&gt;post()) &amp;&amp; $model-&gt;save()) {
+      <span class="hljs-keyword">return</span> $this-&gt;redirect([<span class="hljs-string">'view'</span>, <span class="hljs-string">'id'</span> =&gt; $model-&gt;id]);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> $this-&gt;render(<span class="hljs-string">'create'</span>, [
+        <span class="hljs-string">'model'</span> =&gt; $model,
+      ]);
+    }
+  }
+}</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-21">
+    <section class="slide-content"><h3 id="views-vues-">Views (Vues)</h3>
+<p>Le &quot;V&quot; dans MVC, sont des codes PHP reponsable de la présentation des données à l&#39;utilisateur final:</p>
+<pre><code class="lang-php">use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+
+$this-&gt;title = 'Login';
+$this-&gt;params['breadcrumbs'][] = $this-&gt;title;
+?&gt;
+&lt;div class="site-login"&gt;
+    &lt;h1&gt;&lt;?= Html::encode($this-&gt;title) ?&gt;&lt;/h1&gt;
+    &lt;?php $form = ActiveForm::begin(); ?&gt;
+        &lt;?= $form-&gt;field($model, 'username') ?&gt;
+        &lt;?= $form-&gt;field($model, 'password')-&gt;passwordInput() ?&gt;
+        &lt;?= Html::submitButton('Login') ?&gt;
+
+    &lt;?php ActiveForm::end(); ?&gt;
+&lt;/div&gt;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-22">
+    <section class="slide-content"><h3 id="base-de-donn-es">Base de données</h3>
+<h4 id="configuration-de-connexion-une-base-de-donn-es">Configuration de connexion à une base de données</h4>
+<ul>
+<li>Basé sur PDO</li>
+<li>Support multiple de base de données (MySQL, PGSQL, MSSQLSRVER,ORACLE ..)</li>
+<li>Caching</li>
+<li>Plusieurs connexion dans une seule application</li>
+<li>SQL brute, Query Builder et systéme de migration</li>
+</ul>
+<pre><code class="lang-php"><span class="hljs-comment">//...</span>
+<span class="hljs-string">'components'</span> =&gt; [
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-string">'db'</span> =&gt; [
+    <span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'yii\db\Connection'</span>,
+    <span class="hljs-string">'dsn'</span> =&gt; <span class="hljs-string">'mysql:host=localhost;dbname=example'</span>,
+    <span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'root'</span>,
+    <span class="hljs-string">'password'</span> =&gt; <span class="hljs-string">',
+    '</span>charset<span class="hljs-string">' =&gt; '</span>utf8<span class="hljs-string">',
+  ],
+//...
+],
+//...</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-23">
+    <section class="slide-content"><h3 id="base-de-donn-es">Base de données</h3>
+<h4 id="ex-cution-des-requ-te">Exécution des requéte</h4>
+<h5 id="les-requ-tes-de-selection">Les requêtes de selection</h5>
+<pre><code class="lang-php"><span class="hljs-comment">/// Listes des todos</span>
+$todolists = \Yii::$app-&gt;db-&gt;createCommand(<span class="hljs-string">'SELECT * FROM todolist'</span>)-&gt;queryAll();
+<span class="hljs-comment">/// retourne false si pas de résultat</span>
+$todolist = \Yii::$app-&gt;db-&gt;createCommand(<span class="hljs-string">'SELECT * FROM todolist WHERE id=1'</span>)-&gt;queryOne();
+<span class="hljs-comment">/// retourne une seule colonne sinon un array vide</span>
+$names = \Yii::$app-&gt;db-&gt;createCommand(<span class="hljs-string">'SELECT name FROM todolist'</span>)-&gt;queryColumn();
+<span class="hljs-comment">/// retourne une valaur scalaire, false si aucun résultat</span>
+$count = \Yii::$app-&gt;db-&gt;createCommand(<span class="hljs-string">'SELECT COUNT(*) FROM todolist'</span>)-&gt;queryScalar();</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-24">
+    <section class="slide-content"><h3 id="base-de-donn-es">Base de données</h3>
+<h4 id="ex-cution-des-requ-te">Exécution des requéte</h4>
+<h5 id="les-requ-tes-d-ex-cution">Les requêtes d&#39;exécution</h5>
+<pre><code class="lang-php">\Yii::$app-&gt;db-&gt;createCommand(<span class="hljs-string">'UPDATE todolist SET status=1 WHERE id=1'</span>)-&gt;execute();</code></pre>
+<p>Syntaxe alternative</p>
+<pre><code class="lang-php"><span class="hljs-comment">//update</span>
+\Yii::$app-&gt;db-&gt;createCommand()-&gt;update(<span class="hljs-string">'todolist'</span>,[<span class="hljs-string">'status'</span>=&gt;<span class="hljs-number">1</span>], <span class="hljs-string">'id=1'</span>)-&gt;execute();
+<span class="hljs-comment">//insertion</span>
+\Yii::$app-&gt;db-&gt;createCommand()-&gt;insert(<span class="hljs-string">'todolist'</span>,[<span class="hljs-string">'name'</span>=&gt;<span class="hljs-string">'Tomorrow Tasks'</span>])-&gt;execute();
+<span class="hljs-comment">//Delete</span>
+\Yii::$app-&gt;db-&gt;createCommand()-&gt;delete(<span class="hljs-string">'todolist'</span>,<span class="hljs-string">'status=1'</span>)-&gt;execute();</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-25">
+    <section class="slide-content"><h3 id="base-de-donn-es">Base de données</h3>
+<h4 id="query-builder">Query Builder</h4>
+<p>Permet de construire les requêtes SQL avec la POO</p>
+<pre><code class="lang-php"><span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">db</span>\<span class="hljs-title">Query</span>;
+$todolists = (<span class="hljs-keyword">new</span> \yii\db\Query())
+    -&gt;select([(<span class="hljs-string">'id'</span>, <span class="hljs-string">'name'</span>])
+    -&gt;from(<span class="hljs-string">'todolist'</span>)
+    -&gt;where([<span class="hljs-string">'status'</span> =&gt; <span class="hljs-number">0</span>])
+    -&gt;limit(<span class="hljs-number">10</span>)
+    -&gt;all();</code></pre>
+<p>Vous trouvez plus de détails sur Yii query builder dans la documentation officielle</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-26">
+    <section class="slide-content"><h2 id="modules">Modules</h2>
+<p>Sont des minis applications qui peuvent avoir la même structure qu&#39;une application ordinaire sauf que ils peuvent pas vivre en dehors d&#39;une application Yii.</p>
+<h2 id="-structure-img-module-png-"><img src="img/module.png" alt="structure"></h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-27">
+    <section class="slide-content"><h2 id="filters">Filters</h2>
+<p>Filters sont des classes qui s&#39;excutent avant et après une action d&#39;un controller, par exemple access control filter peut être invoquer pour vérifier qu&#39;un utilisateur a le prévilége avant d&#39;éxecuter l&#39;action, un filter doit être rattacher a un controller comme suit:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">behaviors</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">return</span> [
+    [
+      <span class="hljs-string">'class'</span> =&gt; <span class="hljs-string">'yii\filters\HttpCache'</span>,
+      <span class="hljs-string">'only'</span> =&gt; [<span class="hljs-string">'index'</span>, <span class="hljs-string">'view'</span>],
+      <span class="hljs-string">'lastModified'</span> =&gt; <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($action, $params)</span> </span>{
+        $q = <span class="hljs-keyword">new</span> \yii\db\Query();
+        <span class="hljs-keyword">return</span> $q-&gt;from(<span class="hljs-string">'user'</span>)-&gt;max(<span class="hljs-string">'updated_at'</span>);
+      }
+    ]
+  ];
+}</code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-28">
+    <section class="slide-content"><h2 id="widgets">Widgets</h2>
+<p>Sont des blocks reétulisable dans la vue (view) pour construire des élements UI complexes et confifigurable avec la POO:</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+  <span class="hljs-keyword">use</span> <span class="hljs-title">yii</span>\<span class="hljs-title">jui</span>\<span class="hljs-title">DatePicker</span>;
+<span class="hljs-meta">?&gt;</span>
+<span class="hljs-meta">&lt;?</span>= DatePicker::widget([
+  <span class="hljs-string">'model'</span> =&gt; $model,
+  <span class="hljs-string">'attribute'</span> =&gt; <span class="hljs-string">'from_date'</span>,
+  <span class="hljs-string">'language'</span> =&gt; <span class="hljs-string">'fr'</span>,
+  <span class="hljs-string">'clientOptions'</span> =&gt; [
+  <span class="hljs-string">'dateFormat'</span> =&gt; <span class="hljs-string">'yy-mm-dd'</span>,
+],
+]);
+ <span class="hljs-meta">?&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-29">
+    <section class="slide-content"><h2 id="outils-de-d-veloppement">Outils de développement</h2>
+<ul>
+<li>Gii (échaffaudage)</li>
+<li>Debug</li>
+<li>Codeception</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-30">
+    <section class="slide-content"><h3 id="gii-chaffaudage-">Gii (échaffaudage)</h3>
+<h2 id="-structure-img-gii-png-"><img src="img/gii.png" alt="structure"></h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-31">
+    <section class="slide-content"><h3 id="debug">Debug</h3>
+<h2 id="-structure-img-debug-png-"><img src="img/debug.png" alt="structure"></h2>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-32">
+    <section class="slide-content"><h3 id="codeception">Codeception</h3>
+<p>Est le framework de test dans Yii2, c&#39;est un framework modulaire basé sur PHPUnit entre autres, il couvre les 3 types de test</p>
+<h4 id="unit-tests">Unit tests</h4>
+<p>Pour assurer le test des composant en isolation</p>
+<h4 id="intergration-tests">Intergration tests</h4>
+<p>Pour assurer que les différent composants travail bien ensemble</p>
+<h4 id="acceptence-tests">Acceptence tests</h4>
+<p>Sont des tests exécuté dans le perspective de l&#39;utilisateur final</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-33">
+    <section class="slide-content"><h2 id="extensions">Extensions</h2>
+<ul>
+<li>Widgets</li>
+<li>Behaviors</li>
+<li>Modules</li>
+<li>Components</li>
+<li>Filters</li>
+<li>Actions</li>
+<li>Events</li>
+<li>View renderer</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-34">
+    <section class="slide-content"><h3 id="extensions-officielles">Extensions officielles</h3>
+<ul>
+<li>Elasticsearch</li>
+<li>Bootstrap</li>
+<li>jQuery UI</li>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>Sphinx</li>
+<li>Swiftmailer</li>
+<li>Twig view renderer</li>
+<li>Smarty view renderer</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-35">
     <section class="slide-content"><div class="author">
   <h1 class="name">Cherif BOUCHELAGHEM</h1>
     <h3 class="twitter">
